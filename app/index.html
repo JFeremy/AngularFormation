@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="myApp">
+  <ul class="menu">
+    <li><a href="#!/Administration">Admin</a></li>
+    <li><a href="#!/Panier">Panier</a></li>
+    <li><a href="#!/Accueil">Accueil</a></li>
+    <li><a href="#!/Achat">Achat</a></li>
+    <li><a href="#!/Articles">Articles</a></li>
+    <li><a href="#!/Clients">Clients</a></li>
+    <li><a href="#!/Information_Client">Client</a></li>
+    <li><a href="#!/Information_Article">Article</a></li>
+  </ul>
+
+  <div ng-view></div>
+<br>
+  <div>Angular seed app: v<span app-version></span></div>
+
+  <footer><h5>FOOTER</h5></footer>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <!--script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script-->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="views/admin/admin.js"></script>
+  <script src="views/basket/basket.js"></script>
+  <script src="views/home/home.js"></script>
+  <script src="views/purchase/purchase.js"></script>
+  <script src="views/articles/articles.js"></script>
+  <script src="views/customers/customers.js"></script>
+  <script src="views/customerInfo/customerInfo.js"></script>
+  <script src="views/articleManage/articleManage.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+</body>
+</html>
