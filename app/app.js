@@ -1,9 +1,10 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
+var AppVM = angular.module('myApp', [
   'ngRoute',
   'ngMaterial',
+  'ngMessages',
   'myApp.admin',
   'myApp.basket',
   'myApp.home',
@@ -13,12 +14,8 @@ angular.module('myApp', [
   'myApp.customerInfo',
   'myApp.articleManage',
   'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-
-  $routeProvider.otherwise({redirectTo: '/Accueil'});
-}]).
-config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('dark-grey').backgroundPalette('grey').dark();
-});;
+]);
+AppVM.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
+    $routeProvider.otherwise({redirectTo: '/Accueil'});
+}]);

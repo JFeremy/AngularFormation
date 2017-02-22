@@ -1,0 +1,17 @@
+<form name="myForm">
+  <label>
+    Enter your name:
+    <input type="email"
+           name="myName"
+           ng-model="name"
+           ng-minlength="5"
+           ng-maxlength="20"
+           required />
+  </label>
+  <div ng-messages="myForm.myName.$error" style="color:maroon" role="alert">
+    <div ng-message="required">You did not enter a field</div>
+    <div ng-message="minlength">Your field is too short</div>
+    <div ng-message="maxlength">Your field is too long</div>
+    <div ng-message="email">email TOCARD</div>
+  </div>
+</form>
