@@ -1,105 +1,108 @@
 <div style="visibility: hidden">
-  <div class="md-dialog-container" id="LogSign">
-    <md-dialog layout="column" layout-align="center center" class="md-inline-form">
-    <md-dialog-content>
-      <md-tabs md-dynamic-height md-border-bottom>
-          <md-tab label="Se connecter">
-            <md-content class="md-padding">
-                <md-card-content>
-                  <form name="connexion">
-{{time}}
-                    <md-input-container class="md-block">
-                        <label layout-align="center center">Email</label>
-                        <md-icon>email</md-icon>
-                        <input ng-model="C_email" name="C_email" type="email" required>
-                        <div ng-messages="connexion.C_email.$error" role="alert">
-                          <div ng-message="email">format attendu : <em>email@domaine.fr</em></div>
-                          <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                        </div>
-                    </md-input-container>
+    <div class="md-dialog-container" id="LogSign">
+        <md-dialog layout="column" layout-align="center center" class="md-inline-form">
+            <md-dialog-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Se connecter">
+                        <md-content class="md-padding">
+                            <form name="connexion">
+                                <md-card-content>
+                                  <md-input-container class="md-block">
+                                      <label layout-align="center center">Email</label>
+                                      <md-icon>email</md-icon>
+                                      <input ng-model="C_email" name="C_email" type="email" required>
+                                      <div ng-messages="connexion.C_email.$error" role="alert">
+                                        <div ng-message="email">format attendu : <em>email@domaine.fr</em></div>
+                                        <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                      </div>
+                                  </md-input-container>
 
-                    <md-input-container class="md-block">
-                        <label>Mot de passe</label>
-                        <md-icon>https</md-icon>
-                        <input ng-model="C_password" name="C_password" type="password" minlength="8" required>
-                        <div ng-messages="connexion.C_password.$error" role="alert">
-                          <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                          <div ng-message="minlength">8 caractères minimum</div>
-                        </div>
-                    </md-input-container>
+                                  <md-input-container class="md-block">
+                                      <label>Mot de passe</label>
+                                      <md-icon>https</md-icon>
+                                      <input ng-model="C_password" name="C_password" type="password" minlength="8" required>
+                                      <div ng-messages="connexion.C_password.$error" role="alert">
+                                        <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                        <div ng-message="minlength">8 caractères minimum</div>
+                                      </div>
+                                  </md-input-container>
+                                  <div ng-if="errorLog" class="hive_error">
+                                    <p>{{errorLog_txt}}</p>
+                                  </div>
+                                </md-card-content>
+                                <md-card-actions layout="row" layout-align="center center">
+                                  <md-button class="groupX left md-raised md-primary" ng-disabled="connexion.$invalid" type="submit" ng-click="logIn()">Se connecter</md-button>
+                                </md-card-actions>
+                            </form>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="S'inscrire">
+                        <md-content layout-padding>
+                            <form name="register">
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Prénom</label>
+                                        <md-icon>account_circle</md-icon>
+                                        <input ng-model="R_firstName" name="R_firstName" minlength="3" required>
+                                        <div ng-messages="register.R_firstName.$error" role="alert">
+                                            <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                            <div ng-message="minlength">3 caractères minimum</div>
+                                        </div>
+                                    </md-input-container>
 
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="center center">
-                    <md-button class="groupX left md-raised md-primary" ng-disabled="connexion.$invalid" type="submit" ng-click="logIn()">Se connecter</md-button>
-                </md-card-actions>
-              </form>
-            </md-content>
-        </md-tab>
-        <<md-tab label="S'inscrire">
-            <md-content layout-padding>
-                    <form name="register">
-                        <div layout-gt-sm="row">
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Prénom</label>
-                                <md-icon>account_circle</md-icon>
-                                <input ng-model="R_firstName" name="R_firstName" minlength="3" required>
-                                <div ng-messages="register.R_firstName.$error" role="alert">
-                                  <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                                  <div ng-message="minlength">3 caractères minimum</div>
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Nom</label>
+                                        <md-icon>account_circle</md-icon>
+                                        <input ng-model="R_lastName" name="R_lastName" minlength="3" required>
+                                        <div ng-messages="register.R_lastName.$error" role="alert">
+                                            <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                            <div ng-message="minlength">3 caractères minimum</div>
+                                        </div>
+                                    </md-input-container>
                                 </div>
-                            </md-input-container>
 
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Nom</label>
-                                <md-icon>account_circle</md-icon>
-                                <input ng-model="R_lastName" name="R_lastName" minlength="3" required>
-                                <div ng-messages="register.R_lastName.$error" role="alert">
-                                  <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                                  <div ng-message="minlength">3 caractères minimum</div>
+                                <md-input-container class="md-block">
+                                    <label>Email</label>
+                                    <md-icon>email</md-icon>
+                                    <input ng-model="R_email" name="R_email" type="email" required>
+                                    <div ng-messages="register.R_email.$error" role="alert">
+                                        <div ng-message="email">format attendu : <em>email@domaine.fr</em></div>
+                                        <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                    </div>
+                                </md-input-container>
+
+                                <div layout-gt-sm="row">
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label>Mot de passe</label>
+                                        <md-icon>https</md-icon>
+                                        <input ng-model="R_password" name="R_password" type="password" minlength="8" required>
+                                        <div ng-messages="register.R_password.$error" role="alert">
+                                            <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                            <div ng-message="minlength">8 caractères minimum</div>
+                                        </div>
+                                    </md-input-container>
+
+                                    <md-input-container class="md-block" flex-gt-sm>
+                                        <label form="confirmation" class="form-label">Confirmation</label>
+                                        <md-icon>https</md-icon>
+                                        <input ng-model="R_passwordConfirmed" name="R_passwordConfirmed" type="password" ng-pattern="R_password" required>
+                                        <div ng-messages="register.R_passwordConfirmed.$error" role="alert">
+                                            <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                            <div ng-message="pattern">Vos mots de passe doivent être identiques</div>
+                                        </div>
+                                    </md-input-container>
                                 </div>
-                            </md-input-container>
-                        </div>
-
-                        <md-input-container class="md-block">
-                            <label>Email</label>
-                            <md-icon>email</md-icon>
-                            <input ng-model="R_email" name="R_email" type="email" required>
-                            <div ng-messages="register.R_email.$error" role="alert">
-                              <div ng-message="email">format attendu : <em>email@domaine.fr</em></div>
-                              <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                            </div>
-                        </md-input-container>
-
-                        <div layout-gt-sm="row">
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label>Mot de passe</label>
-                                <md-icon>https</md-icon>
-                                <input ng-model="R_password" name="R_password" type="password" minlength="8" required>
-                                <div ng-messages="register.R_password.$error" role="alert">
-                                  <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                                  <div ng-message="minlength">8 caractères minimum</div>
+                                <div ng-if="errorSign" class="hive_error">
+                                  <p>{{errorSign_txt}}</p>
                                 </div>
-                            </md-input-container>
+                                <md-card-actions layout="row" layout-align="center center">
+                                    <md-button class="groupX left md-raised md-primary" ng-disabled="register.$invalid" type="submit" ng-click="signIn()">S'inscrire</md-button>
+                                </md-card-actions>
+                            </form>
+                        </md-content>
+                    </md-tab>
+            </md-dialog-content>
+        </md-dialog>
 
-                            <md-input-container class="md-block" flex-gt-sm>
-                                <label form="confirmation" class="form-label">Confirmation</label>
-                                <md-icon>https</md-icon>
-                                <input ng-model="R_passwordConfirmed" name="R_passwordConfirmed" type="password" ng-pattern="R_password" required>
-                                <div ng-messages="register.R_passwordConfirmed.$error" role="alert">
-                                  <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
-                                  <div ng-message="pattern">Vos mots de passe doivent être identiques</div>
-                                </div>
-                            </md-input-container>
-                        </div>
-
-                        <md-card-actions layout="row" layout-align="center center">
-                            <md-button class="groupX left md-raised md-primary" ng-disabled="register.$invalid" type="submit" ng-click="signIn()">S'inscrire</md-button>
-                        </md-card-actions>
-                    </form>
-            </md-content>
-        </md-tab>
-    </md-dialog-content>
-</md-dialog>
-
-</div>
+    </div>
 </div>

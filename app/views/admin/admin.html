@@ -1,2 +1,41 @@
-<h1>ADMINISTRATION</h1>
-<p>Page à faire</p>
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex="25" flex-offset="5" layout="column">
+        <md-card class="admin_info" ng-repeat="info in adminHome0" ng-href="#">
+            <md-card-content>
+                <h3>{{info.value}}</h3>
+            </md-card-content>
+            <md-card-title-media>
+                <h5><md-icon>{{info.icon}}</md-icon></h5>
+            </md-card-title-media>
+            <md-card-content>
+                <h5><em>{{info.text}}</em></h5>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex="25" flex-offset="5" layout="column">
+        <md-card class="admin_info" ng-repeat="info in adminHome1">
+            <md-card-content>
+                <h3>{{info.value}}</h3>
+            </md-card-content>
+            <md-card-title-media>
+                <h5><md-icon>{{info.icon}}</md-icon></h5>
+            </md-card-title-media>
+            <md-card-content>
+                <h5><em>{{info.text}}</em></h5>
+            </md-card-content>
+        </md-card>
+    </div>
+    <div flex="25" flex-offset="5" layout="column">
+        <md-card class="admin_info" ng-repeat="info in adminHome2">
+            <md-card-content>
+                <h3>{{info.value}}</h3>
+            </md-card-content>
+            <md-card-title-media>
+                <h5><md-icon>{{info.icon}}</md-icon></h5>
+            </md-card-title-media>
+            <md-card-content>
+                <h5><em>{{info.text}}</em></h5>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>

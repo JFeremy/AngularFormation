@@ -1,25 +1,63 @@
 /* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.hive_error p{
+  color: orange;
+  text-align: center;
+}
+.admin_info h3 {
+  text-align: center;
+  margin: auto !important;
+  font-size: 4em !important;
+}
+.admin_info h5 {
+  text-align: center;
+  margin: auto !important;
+}
+.admin_info md-icon {
+    font-size: 4em;
+    height   : 1em !important;
+    width    : 4em !important;
 }
 
-.menu:before {
-  content: "[";
+.hive_navbar {
+  position: fixed;
 }
 
-.menu:after {
-  content: "]";
+.hive_footer {
+  bottom: 0;
+  padding-bottom: 10px;
+  background-image: url('images/footer_back.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.menu > li {
-  display: inline;
+.hive_content {
+  padding-top: 80px !important;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+img.hive_footer_logo {
+    max-height: 12em;
+}/*
+.hive_footer_txt,
+.hive_footer_txt md-icon.material-icons
+{ color: #333333; }*/
+
+.hive_footer h1,
+.hive_footer h3,
+.hive_footer p
+{ text-align: center; }
+
+.hive_application {
+  background-image: url('images/appli00.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page {
+  /*
+  background-image: url('images/hive_back1.png');
+  background-image: url('images/hive_back2.png');
+  background-image: url('images/hive_back2.jpg');
+  */
+  background-repeat: no-repeat;
+  background-size: cover;
 }

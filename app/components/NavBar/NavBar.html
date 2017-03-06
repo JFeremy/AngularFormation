@@ -1,0 +1,18 @@
+<md-toolbar class="hive_navbar">
+  <div class="md-toolbar-tools">
+    <h2>
+      <a href="#">{{titleNav}}</a>
+    </h2>
+    <span flex></span>
+    <div ng-if="connexionOK">
+      <md-button class="md-raised" ng-click="">
+        Déconnexion
+      </md-button>
+    </div>
+    <div ng-if="!connexionOK">
+      <md-button class="md-raised" ng-click="showTabDialog()">
+        Connexion / Inscription
+      </md-button>
+    </div>
+  </div>
+</md-toolbar

@@ -14,26 +14,33 @@
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 </head>
-<body ng-app="myApp">
-  <ul class="menu">
-    <li><a href="#!/Administration">Admin</a></li>
-    <li><a href="#!/Panier">Panier</a></li>
-    <li><a href="#!/Accueil">Accueil</a></li>
-    <li><a href="#!/Achat">Achat</a></li>
-    <li><a href="#!/Articles">Articles</a></li>
-    <li><a href="#!/Clients">Clients</a></li>
-    <li><a href="#!/Information_Client">Client</a></li>
-    <li><a href="#!/Information_Article">Article</a></li>
-  </ul>
+<body ng-app="myApp" class="page">
 
-  <ng-sidebar></ng-sidebar>
+  <ng-navbar></ng-navbar>
+    <!--
+  <md-nav-bar md-selected-nav-item="currentNavItem">
+    <md-nav-item md-nav-href="#!/Administration" name="Administration">Admin</md-nav-item>
+    <md-nav-item md-nav-href="#!/Panier" name="Panier">Panier</md-nav-item>
+    <md-nav-item md-nav-href="#!/Accueil" name="Accueil">Accueil</md-nav-item>
+    <md-nav-item md-nav-href="#!/Achat" name="Achat">Achat</md-nav-item>
+    <md-nav-item md-nav-href="#!/Articles" name="Articles">Articles</md-nav-item>
+    <md-nav-item md-nav-href="#!/Clients" name="Clients">Clients</md-nav-item>
+    <md-nav-item md-nav-href="#!/Information_Client" name="Information_Client">Client</md-nav-item>
+    <md-nav-item md-nav-href="#!/Information_Article" name="Information_Article">Article</md-nav-item>
+  </md-nav-bar>
+-->
   <ng-logsign></ng-logsign>
 
-  <div ng-view></div>
-<br>
-  <div>Angular seed app: v<span app-version></span></div>
+  <div layout="row" class="hive_content" style="padding-top:00px">
+    <div ng-if="connexionOK">
+      <div><ng-sidebar></ng-sidebar></div>
+    </div>
+    <div flex><div ng-view></div></div>
+  </div>
 
-  <footer><h5>FOOTER</h5></footer>
+  <div ng-if="!connexionOK">
+    <ng-footer></ng-footer>
+  </div>
 
   <!-- SCRIPTS -->
   <!-- AngularJs Libraries -->
@@ -47,6 +54,10 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
   <script src="app.js"></script>
+  <!-- COMPONENTS -->
+  <script src="components/NavBar/NavBar.js"></script>
+  <script src="components/DialogLogIn/DialogLogIn.js"></script>
+  <!-- VIEWS -->
 
   <script src="views/admin/admin.js"></script>
   <script src="views/basket/basket.js"></script>
@@ -57,10 +68,7 @@
   <script src="views/customerInfo/customerInfo.js"></script>
   <script src="views/articleManage/articleManage.js"></script>
 
+  <script src="components/Footer/Footer.js"></script>
   <script src="components/SideBar/SideBar.js"></script>
-  <script src="components/DialogLogIn/DialogLogIn.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>

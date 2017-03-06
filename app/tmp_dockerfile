@@ -1,0 +1,19 @@
+/*
+FROM
+RUN apt-get -y update && apt-get install -y
+
+RUN apt-get update \
+&& apt-get install -y curl \
+&& rm -rf /var/lib/apt/lists
+*/
+
+/*
+('OS','Debian',' debian:latest'),
+('OS','Ubuntu',' ubuntu:latest'),
+('SOFT','Apache2',"apache2"),
+('SOFT','Php5',"php5 \ libapache2-mod-php5 \ php5-gd \ php5-json \ php5-sqlite \ php5-mysql \ php5-mcrypt \ mcrypt"),
+('SOFT','Php7',"libapache2-mod-php7.1 php7.1 php7.1-fpm php7.1-mysql php7.1-curl php7.1-json php7.1-gd php7.1-mcrypt php7.1-msgpack php7.1-memcached php7.1-intl php7.1-sqlite3 php7.1-gmp php7.1-geoip php7.1-mbstring php7.1-redis php7.1-xml php7.1-zip"),
+('SOFT','MySQL',"mysql-server libapache2-mod-auth-mysql"),
+('SOFT','NodeJS','curl -LO "https://nodejs.org/dist/v0.12.5/node-v0.12.5-linux-x64.tar.gz" \ && tar -xzf node-v0.12.5-linux-x64.tar.gz -C /usr/local --strip-components=1 \ && rm node-v0.12.5-linux-x64.tar.gz && npm install'),
+('CMS','Ghost',""),
+('CMS','Wordpress',"")*/

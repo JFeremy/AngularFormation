@@ -12,10 +12,17 @@ var AppVM = angular.module('myApp', [
   'myApp.articles',
   'myApp.customers',
   'myApp.customerInfo',
-  'myApp.articleManage',
-  'myApp.version'
+  'myApp.articleManage'
 ]);
 AppVM.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
     $routeProvider.otherwise({redirectTo: '/Accueil'});
 }]);
+AppVM.config(function($mdThemingProvider) {
+  $mdThemingProvider
+    .theme('default')
+    .primaryPalette('red')
+    .accentPalette('grey')
+    .warnPalette('orange')
+    .backgroundPalette('grey').dark();
+});

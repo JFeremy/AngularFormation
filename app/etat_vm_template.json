@@ -1,0 +1,71 @@
+{
+  "Users" : {
+    "User" : {
+      "email" : "vincent.leverger@isen-ouest.yncrea.fr",
+      "firstName" : "vincent",
+      "lastName" : "leverger",
+      "nbVM" : "3"
+    }
+  },
+  "VMs" : {
+    "VM" : {
+      "1": {
+        "nom": "mon_ghost",
+        "etat": "on",
+        "ram": "30",
+        "cpu": "50",
+        "temps":"11:02:05"
+
+      },
+      "2": {
+        "nom": "mon_apache",
+        "etat": "off",
+        "ram": "50",
+        "cpu": "30",
+        "temps":"11:02:05"
+      },
+      "3": {
+        "nom": "mon_debian",
+        "etat": "on",
+        "ram": "10",
+        "cpu": "75",
+        "temps":"11:02:05"
+      }
+    }
+  }
+}
+
+******************
+
+{
+  "Users" : {
+    "email" : "vincent.leverger@isen-ouest.yncrea.fr",
+    "firstName" : "vincent",
+    "lastName" : "leverger",
+    "nbVM" : "3"
+  },
+  "VMs" : {
+    "1": {
+      "nom": "mon_ghost",
+      "etat": "on",
+      "ram": "30",
+      "cpu": "50",
+      "temps":"11:02:05"
+
+    },
+    "2": {
+      "nom": "mon_apache",
+      "etat": "off",
+      "ram": "50",
+      "cpu": "30",
+      "temps":"11:02:05"
+    },
+    "3": {
+      "nom": "mon_debian",
+      "etat": "on",
+      "ram": "10",
+      "cpu": "75",
+      "temps":"11:02:05"
+    }
+  }
+}
