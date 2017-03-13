@@ -3,7 +3,7 @@
 angular.module('myApp.customerInfo', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/Information_Client', {
+  $routeProvider.when('/Client/:mailClient', {
     templateUrl: 'views/customerInfo/customerInfo.html',
     controller: 'CustomerInfoCtrl'
   });

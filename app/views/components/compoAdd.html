@@ -1,0 +1,57 @@
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="CompoAdd">
+        <md-dialog layout="column" layout-align="center center" class="md-inline-form">
+            <form name=addComponent>
+                <md-toolbar flex class="md-block">
+                    <div class="md-toolbar-tools">
+                        <h2>Ajout d'un composant</h2>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content class="md-block" flex layout="column" layout-align="center center">
+                    <div class="md-dialog-content">
+                        <div layout="row">
+                            <md-input-container class="md-block" flex="60">
+                                <label>Nom</label>
+                                <input ng-model="Compo_Name" name="Compo_Name" type="text" required>
+                                <div ng-messages="addComponent.Compo_Name.$error" role="alert">
+                                    <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block" flex>
+                                <label>Type</label>
+                                <md-select ng-model="Compo_Type" name="Compo_Type" required>
+                                    <md-option ng-repeat="type in componentType" value="{{type.Type}}">
+                                        {{type.TypeLabel}}
+                                    </md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                        <md-input-container class="md-block" flex>
+                            <label>Description</label>
+                            <input ng-model="Compo_Description" name="Compo_Description" type="text" required>
+                            <div ng-messages="addComponent.Compo_Description.$error" role="alert">
+                                <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex>
+                            <label>Code</label>
+                            <textarea ng-model="Compo_Code" name="Compo_Code" required></textarea>
+                        </md-input-container>
+                    </div>
+                </div>
+                </md-dialog-content>
+                <md-dialog-actions layout="row" flex>
+                    <md-button type="submit" ng-click="createComponent()" class="md-raised md-primary" ng-disabled="addComponent.$invalid">
+                        Ajouter
+                    </md-button>
+                    <md-button type="reset">
+                        Effacer
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </div>
+</div>

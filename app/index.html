@@ -17,23 +17,11 @@
 <body ng-app="myApp" class="page">
 
   <ng-navbar></ng-navbar>
-    <!--
-  <md-nav-bar md-selected-nav-item="currentNavItem">
-    <md-nav-item md-nav-href="#!/Administration" name="Administration">Admin</md-nav-item>
-    <md-nav-item md-nav-href="#!/Panier" name="Panier">Panier</md-nav-item>
-    <md-nav-item md-nav-href="#!/Accueil" name="Accueil">Accueil</md-nav-item>
-    <md-nav-item md-nav-href="#!/Achat" name="Achat">Achat</md-nav-item>
-    <md-nav-item md-nav-href="#!/Articles" name="Articles">Articles</md-nav-item>
-    <md-nav-item md-nav-href="#!/Clients" name="Clients">Clients</md-nav-item>
-    <md-nav-item md-nav-href="#!/Information_Client" name="Information_Client">Client</md-nav-item>
-    <md-nav-item md-nav-href="#!/Information_Article" name="Information_Article">Article</md-nav-item>
-  </md-nav-bar>
--->
   <ng-logsign></ng-logsign>
 
-  <div layout="row" class="hive_content" style="padding-top:00px">
-    <div ng-if="connexionOK">
-      <div><ng-sidebar></ng-sidebar></div>
+  <div layout="row" class="hive_content">
+    <div flex="20" ng-if="connexionOK">
+      <ng-sidebar></ng-sidebar>
     </div>
     <div flex><div ng-view></div></div>
   </div>
@@ -54,7 +42,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
   <script src="app.js"></script>
-  <!-- COMPONENTS -->
+  <!-- ELEMENTS -->
   <script src="components/NavBar/NavBar.js"></script>
   <script src="components/DialogLogIn/DialogLogIn.js"></script>
   <!-- VIEWS -->
@@ -64,11 +52,20 @@
   <script src="views/home/home.js"></script>
   <script src="views/purchase/purchase.js"></script>
   <script src="views/articles/articles.js"></script>
+  <script src="views/components/components.js"></script>
   <script src="views/customers/customers.js"></script>
   <script src="views/customerInfo/customerInfo.js"></script>
-  <script src="views/articleManage/articleManage.js"></script>
+  <script src="views/commands/commands.js"></script>
+  <!--script src="views/commands/commandDetail.js"></script-->
 
   <script src="components/Footer/Footer.js"></script>
   <script src="components/SideBar/SideBar.js"></script>
+
+
+
+  <script src="views/components/compoAdd.js"></script>
+  <script src="views/components/compoDetail.js"></script>
+  <script src="views/articles/articleAdd.js"></script>
+  <!--script src="views/articles/articleDetail.js"></script-->
 </body>
 </html>

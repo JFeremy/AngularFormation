@@ -1,0 +1,43 @@
+<div layout="column">
+    <md-content flex flex-offset="5" class="md-padding" layout="column" layout-align="center center">
+        <div flex layout="row">
+            <md-input-container>
+                <label>Par numéro</label>
+                <md-icon>search</md-icon>
+                <input ng-model="commandNumberQuery" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Par email</label>
+                <input ng-model="commandEmailQuery" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Par montant</label>
+                <input ng-model="commandAmountQuery" type="text">
+            </md-input-container>
+            <md-input-container>
+                <md-select placeholder="Par mois" ng-model="userMounthQuery">
+                    <md-option ng-value="stat.value" ng-repeat="stat in statFact">{{stat.text}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </md-content>
+    <md-content flex flex-offset="5" class="md-padding" layout="row" layout-align="center start" layout-wrap>
+        <div flex="30" ng-repeat="command in commandsList | filter:
+      {Id_Command: commandNumberQuery,
+       Mail_User: commandEmailQuery,
+       Amount: commandAmountQuery,
+       factState: userFactQuery}">
+            <md-card class="admin_Lcommand">
+                <md-card-header>
+                    <md-card-header-text>
+                        <span class="md-title">N°: {{command.Id_Command}} / {{command.Mail_User}}</span>
+                        <span class="md-subhead">{{command.DatePay_Command}} / {{command.Amount}} €</span>
+                    </md-card-header-text>
+                    <md-button ng-href='#!/Commande/{{command.Id_Command}}' class="md-fab md-mini md-primary hive_user_detail">
+                      <md-icon>fullscreen</md-icon>
+                    </md-button>
+                </md-card-header>
+            </md-card>
+        </div>
+    </md-content>
+</div>

@@ -1,1 +1,92 @@
-<h1>Liste des clients</h1>
+<div layout="column">
+
+    <md-content flex flex-offset="5" class="md-padding" layout="column" layout-align="center center">
+        <div flex layout="row">
+            <md-input-container>
+                <label>Par prénom</label>
+                <md-icon>search</md-icon>
+                <input ng-model="userFirstNameQuery" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Par nom</label>
+                <input ng-model="userLastNameQuery" type="text">
+            </md-input-container>
+            <md-input-container>
+                <label>Par email</label>
+                <input ng-model="userEmailQuery" type="text">
+            </md-input-container>
+            <md-input-container>
+                <md-select placeholder="Payé ?" ng-model="userFactQuery">
+                    <md-option ng-value="stat.value" ng-repeat="stat in statFact">{{stat.text}}</md-option>
+                </md-select>
+            </md-input-container>
+        </div>
+    </md-content>
+    <md-content flex flex-offset="5" class="md-padding" layout="row" layout-align="center start" layout-wrap>
+        <div flex="30" ng-repeat="user in usersList | filter:
+      {firstName: userFirstNameQuery,
+       lastName: userLastNameQuery,
+       email: userEmailQuery,
+       factState: userFactQuery}">
+            <md-card class="admin_Lcusto">
+                <md-card-header>
+                    <md-card-header-text>
+                        <span class="md-title">{{user.firstName}} {{user.lastName}}</span>
+                        <span class="md-subhead">{{user.email}}</span>
+                    </md-card-header-text>
+                    <md-button ng-href='#!/Client/{{user.email}}' class="md-fab md-mini md-primary hive_user_detail">
+                      <md-icon>assessment</md-icon>
+                    </md-button>
+                </md-card-header>
+                <md-card-content>
+                    <md-list>
+                        <md-list-item class="hive_users_list">
+                            <div flex="15">
+                                <md-icon>move_to_inbox</md-icon>
+                            </div>
+                            <div flex>
+                                <h6>Nombre de VM :</h6>
+                            </div>
+                            <div flex="15">
+                                <p>{{user.nbVM}}</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="hive_users_list">
+                            <div flex="15">
+                                <md-icon>shopping_cart</md-icon>
+                            </div>
+                            <div flex>
+                                <h6>Nombre de Commandes :</h6>
+                            </div>
+                            <div flex="15">
+                                <p>{{user.nbcommand}}</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="hive_users_list">
+                            <div flex="15">
+                                <md-icon>euro_symbol</md-icon>
+                            </div>
+                            <div flex>
+                                <h6>Montant des Commandes :</h6>
+                            </div>
+                            <div flex="15">
+                                <p>{{user.amountCommand}}</p>
+                            </div>
+                        </md-list-item>
+                        <md-list-item class="hive_users_list">
+                            <div flex="15">
+                                <md-icon>check_box</md-icon>
+                            </div>
+                            <div flex>
+                                <h6>Etat des factures :</h6>
+                            </div>
+                            <div flex="15">
+                                <p>{{user.factState ? statFact[1].text : statFact[0].text}}</p>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </md-card-content>
+            </md-card>
+        </div>
+    </md-content>
+</div>

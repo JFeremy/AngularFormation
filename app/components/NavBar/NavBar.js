@@ -3,6 +3,8 @@ AppVM.directive('ngNavbar', function (){
     restrict: 'E',
     templateUrl: 'components/NavBar/NavBar.html',
     controller : function($scope, $rootScope, $mdDialog){
+      $scope.titleNav = "HIVE";
+
       $scope.showTabDialog = function(ev) {
         console.log('connexion/inscription:click');
         $mdDialog.show({
@@ -11,7 +13,11 @@ AppVM.directive('ngNavbar', function (){
          clickOutsideToClose:true
         });
       };
-      $scope.titleNav = "HIVE";
+      $scope.logOut = function() {
+        console.log('déconnexion:click');
+        sessionStorage.clear();
+        window.location.href = 'http://localhost/Linux_Lab/AngularFormation/app/';
+      };
     }
   }
 });

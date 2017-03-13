@@ -5,7 +5,6 @@ AppVM.directive('ngLogsign', function (){
     controller: function($rootScope, $scope, $http, $mdDialog){
 
       $scope.logIn = function(){
-        console.log('se connecter:click');
         var data = {};
         var data_send = "Mail_User="+$scope.C_email+"&"+
               "Password_User="+$scope.C_password;
@@ -19,21 +18,38 @@ AppVM.directive('ngLogsign', function (){
            else {
             localStorage.setItem('user', JSON.stringify(data.content));
             localStorage.setItem('user_type', data.content.type);
-            localStorage.setItem('infoHome', JSON.stringify(data.content.infoHome));
+            localStorage.setItem('componentsList', JSON.stringify(data.content.Components));
+            localStorage.setItem('articlesList', JSON.stringify(data.content.Articles));
+            localStorage.setItem('commandsList', JSON.stringify(data.content.Commands));
+            localStorage.setItem('vmsList', JSON.stringify(data.content.VMs));
 
             $rootScope.user = JSON.parse(localStorage.user);
-            $rootScope.user.firstName = data.content.firstName;
-            $rootScope.user.lastName = data.content.lastName;
             $rootScope.user_type = localStorage.user_type;
+            $rootScope.componentsList = JSON.parse(localStorage.componentsList);
+            $rootScope.articlesList = JSON.parse(localStorage.articlesList);
+            $rootScope.commandsList = JSON.parse(localStorage.commandsList);
+            $rootScope.vmsList = JSON.parse(localStorage.vmsList);
 
             if ($rootScope.user_type == "Admin") {
-              $scope.titleNav = "HIVE - TABLEAU DE BORD ADMINISTRATEUR"; }
-            else if ($rootScope.user_type == "Customer") {
-              $scope.titleNav = "HIVE - TABLEAU DE BORD CLIENT"; }
+              $scope.titleNav = "HIVE - TABLEAU DE BORD ADMINISTRATEUR";
+              localStorage.setItem('infoHome', JSON.stringify(data.content.infoHome));
+              localStorage.setItem('customersList', JSON.stringify(data.content.Customers));
+              $rootScope.infoHome = JSON.parse(localStorage.infoHome);
+              $rootScope.customersList = JSON.parse(localStorage.customersList);
+              $rootScope.generalState = 1;
+            }
+            else if ($rootScope.user_type == "User") {
+              $scope.titleNav = "HIVE - TABLEAU DE BORD CLIENT";
+              $rootScope.basket = 0;
+              $rootScope.userCommand = {
+                package : [],
+                custom : {}
+              };
+              $rootScope.generalState = 0;
+            }
             else {
               $scope.titleNav = "HIVE"; }
 
-            $rootScope.infoHome = JSON.parse(localStorage.infoHome);
             $rootScope.connexionOK = 1;
           }
          });

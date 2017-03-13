@@ -1,4 +1,8 @@
 /* app css stylesheet */
+.articleDetails md-list-item {
+  height: 50px !important;
+  min-height: 50px !important;
+}
 .hive_error p{
   color: orange;
   text-align: center;
@@ -12,14 +16,48 @@
   text-align: center;
   margin: auto !important;
 }
+.admin_Lcusto md-card-content {
+    padding-top: 0px;
+}
+.hive_sidebar_title h3 {
+    font-size: small; !important
+}
+
+.admin_Lcusto md-card-header {
+    padding-bottom: 0px;
+}
+
+.hive_user_detail {
+  text-align: right;
+  float: right !important;
+}
+.hive_list {
+  height : 50px;
+}
+.hive_users_list p{
+  text-align: right;
+  font-size: 12px !important;
+}
+.hive_users_list h6{
+  text-align: left;
+  font-size: 12px !important;
+  margin: 0px !important;
+}
 .admin_info md-icon {
     font-size: 4em;
     height   : 1em !important;
     width    : 4em !important;
 }
-
+md-sidenav {
+  z-index: 2 !important;
+  margin-top: 70px !important;
+}
 .hive_navbar {
-  position: fixed;
+  z-index: 10 !important ;
+}
+md-sidenav,
+.hive_navbar {
+  position: fixed !important;
 }
 
 .hive_footer {

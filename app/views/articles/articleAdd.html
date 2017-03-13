@@ -1,0 +1,66 @@
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="ArticleAdd">
+        <md-dialog layout="column" layout-align="center center" class="md-inline-form">
+            <form name=addArticle>
+                <md-toolbar flex class="md-block">
+                    <div class="md-toolbar-tools">
+                      <div ng-if="!generalState">
+                            <h2>Article personnalisé</h2>
+                      </div>
+                      <div ng-if="generalState">
+                            <h2>Ajout d'un article</h2>
+                      </div>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content class="md-block" flex layout="column" layout-align="center center">
+                    <div class="md-dialog-content">
+                        <div layout="row">
+                            <md-input-container class="md-block" flex="60">
+                                <label>Nom</label>
+                                <input ng-model="Article_Label" name="Article_Label" type="text" required>
+                                <div ng-messages="addComponent.Article_Label.$error" role="alert">
+                                    <div ng-message="required">Vous avez oublié de renseigner ce champs</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block" flex>
+                                <label>Prix</label>
+                                <input ng-model="Article_Price" name="Article_Price" type="number" min="0" step="0.5" required>
+                                <md-icon>euro_symbol</md-icon>
+                            </md-input-container>
+                        </div>
+                        <div layout="row">
+                          <md-input-container class="md-block" flex>
+                              <label>OS</label>
+                              <md-select ng-model="selectedOS">
+                                  <md-option ng-value="component.Name_Component" ng-repeat="component in componentsList | filter: {Libelle_Type_Component: 'OS' }">{{component.Name_Component}}</md-option>
+                              </md-select>
+                          </md-input-container>
+                          <md-input-container class="md-block" flex>
+                            <label>CMS</label>
+                            <md-select ng-model="selectedCMS">
+                              <md-option ng-value="component.Name_Component" ng-repeat="component in componentsList | filter: {Libelle_Type_Component: 'CMS' }">{{component.Name_Component}}</md-option>
+                            </md-select>
+                          </md-input-container>
+                        </div>
+                        <div layout="row">
+                            <md-input-container class="md-block" flex>
+                                <label>Elements</label>
+                                <md-select ng-model="selectedApplications" multiple>
+                                    <md-option ng-value="component.Name_Component" ng-repeat="component in componentsList | filter: {Libelle_Type_Component: 'Application' }">{{component.Name_Component}}</md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                </md-dialog-content>
+                <md-dialog-actions layout="row" flex>
+                    <md-button type="submit" ng-click="createArticle()" class="md-raised md-primary" ng-disabled="addComponent.$invalid">
+                        Ajouter
+                    </md-button>
+                    <md-button type="reset">
+                        Effacer
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </div>
+</div>

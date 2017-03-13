@@ -10,9 +10,11 @@ var AppVM = angular.module('myApp', [
   'myApp.home',
   'myApp.purchase',
   'myApp.articles',
+  'myApp.components',
+  'myApp.commands',
+  //'myApp.commandDetail',
   'myApp.customers',
-  'myApp.customerInfo',
-  'myApp.articleManage'
+  'myApp.customerInfo'
 ]);
 AppVM.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
@@ -25,4 +27,5 @@ AppVM.config(function($mdThemingProvider) {
     .accentPalette('grey')
     .warnPalette('orange')
     .backgroundPalette('grey').dark();
+    //.backgroundPalette('grey');
 });

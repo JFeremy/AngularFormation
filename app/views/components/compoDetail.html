@@ -1,0 +1,61 @@
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="CompoDetail">
+        <md-dialog layout="column" layout-align="center center" class="md-inline-form">
+            <form name=updateComponent>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Modification</h2>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content class="md-block" flex layout="column" layout-align="center center">
+                    <div class="md-dialog-content">
+                        <div layout="row">
+                            <md-input-container class="md-block" flex="60">
+                                <label>Nom</label>
+                                <input ng-model="componentsList[compoDetail_index].Name_Component" name="Compo_Type" type="text" disabled>
+                            </md-input-container>
+                            <md-input-container class="md-block" flex>
+                                <label>Type</label>
+                                <input ng-model="componentsList[compoDetail_index].Libelle_Type_Component" name="Compo_Type" type="text" disabled>
+                            </md-input-container>
+                        </div>
+
+                        <div ng-if="generalState">
+                            <div layout="row">
+                                <md-input-container class="md-block" flex>
+                                    <label>Description</label>
+                                    <input ng-model="componentsList[compoDetail_index].Description_Component" name="Compo_Description" type="text">
+                                </md-input-container>
+                            </div>
+                            <div layout="row">
+                                <md-input-container class="md-block" flex>
+                                    <label>Code</label>
+                                    <textarea ng-model="Compo_Code" name="Compo_Code" placeholder="code à insérer dans le Dockerfile"></textarea>
+                                </md-input-container>
+                            </div>
+                        </div>
+                        <div ng-if="!generalState">
+                            <div layout="row">
+                                <md-input-container class="md-block" flex>
+                                    <label>Description</label>
+                                    <input ng-model="componentsList[compoDetail_index].Description_Component" name="Compo_Description" type="text" disabled>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </div>
+                </md-dialog-content>
+                <div ng-if="generalState">
+                    <md-dialog-actions layout="row" flex>
+                        <md-button ng-click="setComponent()" class="md-raised md-primary">
+                            Valider les modifications
+                        </md-button>
+                        <md-button ng-click="deleteComponent()" class="md-raised md-warn">
+                            Supprimer le composant
+                        </md-button>
+                    </md-dialog-actions>
+                </div>
+            </form>
+        </md-dialog>
+
+    </div>
+</div>

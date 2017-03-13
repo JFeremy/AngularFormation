@@ -1,24 +1,28 @@
 <md-sidenav
-    class="md-sidenav-left"
-    md-component-id="left"
-    md-is-locked-open="true"
-    md-whiteframe="2"
-    layout="column"
-    flex="100">
-  <md-toolbar class="md-theme-indigo">
-    <h1 class="md-toolbar-tools">{{user.firstName}} {{user.lastName}}</h1>
+  ng-sidebar
+  class="md-sidenav-left"
+  md-component-id="left"
+  md-is-locked-open="true"
+  md-disable-scroll-target = "true"
+  md-whiteframe="2"
+  layout="column"
+  layout-align="start stretch">
+  <md-toolbar>
+    <div class="md-toolbar-tools hive_sidebar_title" layout="column" layout-align="center start">
+      <h2>{{user.firstName}} {{user.lastName}}</h2>
+      <h3>{{user.email}}</h3>
+    </div>
   </md-toolbar>
   <md-content layout-padding>
     <md-list>
-      <md-list-item ng-repeat="navALink in navAdmin" ng-href="#" >
+      <md-list-item ng-repeat="navLink in navbarHive" ng-href={{navLink.link}} class="hive_list">
         <div class="inset">
-          <md-icon>{{navALink.icon}}</md-icon>
+          <md-icon>{{navLink.icon}}</md-icon>
         </div>
         <div class="inset">
-          <p>{{navALink.text}}</p>
+          <p>{{navLink.text}}</p>
         </div>
       </md-list-item>
     </md-list>
   </md-content>
-
 </md-sidenav>
